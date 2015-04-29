@@ -22,7 +22,8 @@
 #include <sys/types.h>
 
 #include <vector>
-#include <tr1/unordered_map>
+#include <unordered_map>
+#include <string>
 
 // hard-coded settings from generator #1
 
@@ -56,7 +57,7 @@ int ntrue = 0;
 
 // key-value hash table for received datums
 
-std::tr1::unordered_map<uint64_t, std::pair<int,int> > kv(1);
+std::unordered_map<uint64_t, std::pair<int,int> > kv(1);
 
 // parse command line
 // regular argument = port to read from
@@ -137,7 +138,7 @@ void stats()
   uint64_t ndatum = nrecv * perpacket;
   fprintf(stdout,"datums received = %" PRIu64 "\n",ndatum);
 
-  std::tr1::unordered_map<uint64_t, std::pair<int,int> >::iterator i;
+  std::unordered_map<uint64_t, std::pair<int,int> >::iterator i;
   int kmax = 0;
   for (i = kv.begin(); i != kv.end(); i++) {
     std::pair<int,int>& tuple = i->second;
