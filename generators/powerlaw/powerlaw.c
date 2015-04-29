@@ -103,7 +103,7 @@ void read_cmd_options(int argc, char ** argv)
   int flag = 0;
   if (npacket <= 0 || perpacket <= 0 || rate < 0) flag = 1;
   if (whichgen < 0 || whichgen >= numgen) flag = 1;
-  if (kseed < 0 || mask <= 0) flag = 1;
+  if (mask <= 0) flag = 1;
   if (flag) {
     fprintf(stderr, "ERROR: invalid command-line switch\n");
     exit(1);
